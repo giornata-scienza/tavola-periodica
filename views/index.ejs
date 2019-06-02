@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <title>Tavola periodica - FestivalScienza 2018</title>
+
+  <link rel="icon" href="http://tp.thage.me/favicon.ico?v=2">
+
+  <link rel="stylesheet" href="css/bootstrap-custom.css">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+  
+  <div class="jumbotron">
+    <h1 class="display-4">Tavola periodica</h1>
+    <p class="lead">Progetto sviluppato dalla 5^A Liceo delle Scienze Applicate in collaborazione con la 5^A Informatica in occasione della Giornata della Scienza di Iglesias 2018-2019.</p>
+    <!-- Button "Scopri di più" trigger modal -->
+    <button type="button" class="btn btn-tavola-periodica" data-toggle="modal" data-target="#modalPrincipale">
+      Scopri di più
+    </button>
+    <button type="button" class="btn btn-tavola-periodica" onclick="window.location='https://tp.thage.me/wiki'">
+      Vai alla wiki
+    </button>
+
+    <script src="https://checkout.stripe.com/checkout.js"></script>
+
+    <script>
+    var handler = StripeCheckout.configure({
+      key: 'pk_live_0iBJIXpP0kmt4STqLhpjFa6l',
+      image: 'https://stripe.com/img/documentation/checkout/marketplace.png',
+      locale: 'auto',
+      token: token => {
+        // You can access the token ID with `token.id`.
+        // Get the token ID to your server-side code for use.
+      }
+    })
+
+    document.getElementById('customButton').addEventListener('click', function(e) {
+      // Open Checkout with further options:
+      handler.open({
+        name: 'Tavola Periodica',
+        description: 'Una donazione di 5 euro',
+        currency: 'eur',
+        amount: 500
+      })
+      e.preventDefault()
+    })
+
+    // Close Checkout on page navigation:
+    window.addEventListener('popstate', function() {
+      handler.close()
+    })
+    </script>
+
+    <!-- Modal -->
+    <div class="modal fade" id="modalPrincipale" tabindex="-1" role="dialog" aria-labelledby="titoloModal" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title" id="titoloModal">Giornata della Scienza</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p>
+              Scopo della <b>Settimana della Cultura Scientifica e Tecnologica</b> è di mobilitare tutte le competenze e le energie del Paese per favorire la più capillare diffusione di una solida e critica cultura tecnico-scientifica.
+            </p>
+            <p>
+              In particolare, la Settimana stimola l'apertura di <b>efficaci canali di comunicazione</b> e di scambio tra l'universo della società civile (<i>che vede in prima fila il mondo della scuola</i>), da un lato, e l'articolato complesso del Sistema Ricerca (università, enti di ricerca pubblici e privati, musei, aziende, associazioni, ecc.), dall'altro.
+            </p>
+            <p>
+              La manifestazione generalmente offre avvenimenti  su temi di storia delle scienze e delle tecniche, di attualità scientifica, e propone riflessioni sui fondamenti delle scienze  e sulle implicazioni etico-politiche  della ricerca scientifica e tecnologica. La tipologia delle iniziative è ampia ed eterogenea: mostre, laboratori, lezioni, seminari, conferenze, proiezioni, visite guidate ai musei scientifici, ecc….
+            </p>
+            <p>
+              Durante la Giornata della Scienza 2018, le classi <b>5^A Liceo delle Scienze Applicate</b> e <b>5^A Informatica</b> dell'Istituto "<i>Asproni-Fermi</i>" di Iglesias presentano questa tavola periodica degli elementi interattiva, basata sulle ricerche svolte riguardo i <b>Raw Materials</b>.
+            </p>
+            <hr>
+
+            <h5>Ricerca e testi:</h5>
+
+            <ul>
+              <li>Luca Margarucci</li>
+              <li>Simone Marzeddu</li>
+              <li>Alessandro Melis</li>
+              <li>Matteo Meloni</li>
+              <li>Matteo Pilittu</li>
+              <li>Marco Pusceddu</li>
+            </ul>
+
+            <h5>Web app:</h5>
+
+            <ul>
+              <li>Damiano Casula</li>
+              <li>Emanuele Cocco</li>
+              <li>Nicola Deidda</li>
+              <li>Andrea Garau</li>
+              <li>Daniele Murtas</li>
+              <li>Gianmarco Palmas</li>
+              <li>Marco Pintore</li>
+              <li>Emanuele Piras</li>
+              <li>Jacopo Piredda</li>
+            </ul>
+
+            <hr>
+            <p>
+              <i>Gli studenti della 5^A Informatici vogliono ringraziare gli studenti del Liceo delle Scienze Applicate per avergli offerto l'opportunità di cimentarsi nello sviluppo di questa applicazione web.</i>
+            </p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Chiudi</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <hr>
+
+    <p>Fai click su una categoria di elementi per visualizzare solo quelli che ti interessano, fai click altrove nello schermo per ripristinare la visualizzazione completa. Dopo aver fatto click su un elemento, riclicca sul simbolo dell'elemento per visualizzarne la scheda.</p>
+    
+    <hr>
+      
+    <div class="key">
+      <div class="row">
+        <label class="raws" for="raws">Raw materials</label>
+        <label class="alkali-metal" for="alkali-metals">Metalli alcalini</label>
+        <label class="alkaline-earth-metal" for="alkaline-earth-metals">Metalli alcalino-terrosi</label>
+        <label class="lanthanoid" for="lanthanoids">Lantanoidi</label>
+        <label class="actinoid" for="actinoids">Attinoidi</label>
+        <label class="transition-metal" for="transition-metals">Metalli di transizione</label>
+        <label class="post-transition-metal" for="post-transition-metals">Metalli di post-transizione</label>
+        <label class="metalloid" for="metalloids">Semimetalli</label>
+        <label class="other-nonmetal" for="other-nonmetals">Altri</label>
+        <label class="noble-gas" for="noble-gasses">Gas nobili</label>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrapper">
+    <input class="category-toggle" type="radio" id="alkali-metals" name="categories"/>
+    <input class="category-cancel" type="radio" id="cancel" name="categories"/>
+    <input class="category-toggle" type="radio" id="alkaline-earth-metals" name="categories"/>
+    <input class="category-cancel" type="radio" id="cancel" name="categories"/>
+    <input class="category-toggle" type="radio" id="lanthanoids" name="categories"/>
+    <input class="category-cancel" type="radio" id="cancel" name="categories"/>
+    <input class="category-toggle" type="radio" id="actinoids" name="categories"/>
+    <input class="category-cancel" type="radio" id="cancel" name="categories"/>
+    <input class="category-toggle" type="radio" id="transition-metals" name="categories"/>
+    <input class="category-cancel" type="radio" id="cancel" name="categories"/>
+    <input class="category-toggle" type="radio" id="post-transition-metals" name="categories"/>
+    <input class="category-cancel" type="radio" id="cancel" name="categories"/>
+    <input class="category-toggle" type="radio" id="metalloids" name="categories"/>
+    <input class="category-cancel" type="radio" id="cancel" name="categories"/>
+    <input class="category-toggle" type="radio" id="other-nonmetals" name="categories"/>
+    <input class="category-cancel" type="radio" id="cancel" name="categories"/>
+    <input class="category-toggle" type="radio" id="noble-gasses" name="categories"/>
+    <input class="category-cancel" type="radio" id="cancel" name="categories"/>
+    <input class="category-toggle" type="radio" id="raws" name="categories"/>
+    <input class="category-cancel" type="radio" id="cancel" name="categories"/>
+
+    <div class="periodic-table">
+
+      <% include elements %>
+      
+      <div class="placeholder lanthanoid c3 r6">
+        <div class="square">57-71</div>
+      </div>
+
+      <div class="placeholder actinoid c3 r7">
+        <div class="square">89-103</div>
+      </div>
+
+      <div class="gap c3 r8"></div>
+    </div>
+  </div>
+  
+  <footer>Built with &#9829 by <a href="https://github.com/giornata-scienza/tavola-periodica" target="_blank">5^A Informatica</a> | Powered by <a href="https://thage.me" target="_blank">Thage</a></footer>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</body>
+</html>

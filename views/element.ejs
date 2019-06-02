@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <title><%= element.name %><% if (element.rawMaterial) { %> | Raw material<% } %></title>
+  
+	<link rel="stylesheet" href="css/bootstrap-custom.css">
+	<link rel="stylesheet" href="css/main.css">
+	<link rel="stylesheet" href="css/gauge.css">
+</head>
+
+<body>
+
+	<div class="element-card" style="<% if (element.rawMaterial) { %>border-color: #ff4532<% } %>">
+    <a href="/">
+      <button type="button" class="close" id="arrow-button">
+        <span aria-hidden="true">&LeftArrow;</span>
+      </button>
+    </a>
+
+    <div class="grid">
+      <div class="grid-item" id="info">
+        <h3><%= element.name %></h3>
+        
+        <hr>
+
+        <h4>Simbolo</h4>
+        <h5><%= element.symbol %></h5>
+        
+        <hr>
+
+        <h4>Classificazione</h4>
+        <h5><%= element.type %><% if (element.rawMaterial) { %> (raw material)<% } %></h5>
+        
+        <hr>
+
+        <h4>Numero atomico</h4>
+        <h5><%= element.atomicNumber %></h5>
+        
+        <hr>
+
+        <h4>Massa atomica</h4>
+        <% if (element.atomicMassNotCertain) { %>
+          <h5><%= element.atomicMass %> (probabile)</h5>
+        <% } else { %>
+          <h5><%= element.atomicMass %></h5>
+        <% } %>
+        
+        <% if (element.rischioEsaurimento) { %>
+          <hr>
+
+          <!-- Modal -->
+          <div class="modal fade" id="modalRischioEsaurimento" tabindex="-1" role="dialog" aria-labelledby="titoloModalRischioEsaurimento" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 style="color: black" class="modal-title" id="titoloModalRischioEsaurimento">Rischio Esaurimento</h4>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <p>
+                    Indice che riflette il rischio di un'interruzione nell'approvvigionamento Europa del materiale. Si basa sulla concentrazione dell'offerta primaria dai paesi produttori di materie prime, considerando gli aspetti commerciali. In base all'affidabilità delle importazioni dell'Europa, vengono presi in considerazione in modo proporzionale i 2 insiemi dei paesi produttori: i fornitori globali e i paesi da cui l'Europa sta acquistando le materie prime. Il Rischio Esaurimento viene misurato nella fase di estrazione o lavorazione del materiale, che presenta il più alto rischio di approvvigionamento per l'UE. La sostituzione e il riciclaggio sono considerati misure di riduzione del rischio.
+                  </p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Chiudi</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Modal -->
+          <div class="modal fade" id="modalImportanzaEconomica" tabindex="-1" role="dialog" aria-labelledby="titoloModalImportanzaEconomica" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 style="color: black" class="modal-title" id="titoloModalImportanzaEconomica">Importanza Economica</h4>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <p>
+                    Indice volto a fornire informazioni sull'importanza di un materiale per l'economia dell'Europa in termini di applicazioni di uso finale e il valore aggiunto dei corrispondenti settori manifatturieri. L'importanza economica è corretta dall'indice di sostituzione relativo alle prestazioni tecniche e ai costi dei sostituti per le singole applicazioni industriali.
+                  </p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Chiudi</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <h4><a href="#" data-toggle="modal" data-target="#modalRischioEsaurimento">Rischio Esaurimento</a></h4>
+          <div class="box gauge-rischio-esaurimento">
+            <div class="mask">
+              <div class="semi-circle"></div>
+              <div class="semi-circle--mask" style="transform: rotate(<%= (element.rischioEsaurimento * 180) / 100 %>deg)"></div>
+            </div>
+            <p class="gauge-number"><%= element.rischioEsaurimento / 10 %></p>
+          </div>
+        <% } %>
+          
+        <% if (element.importanzaEconomica) { %>
+          <hr>
+
+          <h4><a href="#" data-toggle="modal" data-target="#modalImportanzaEconomica">Importanza economica</a></h4>
+          <div class="box">
+            <div class="mask">
+              <div class="semi-circle"></div>
+              <div class="semi-circle--mask" style="transform: rotate(<%= (element.importanzaEconomica * 180) / 100 %>deg)"></div>
+            </div>
+            <p class="gauge-number"><%= element.importanzaEconomica / 10 %></p>
+          </div>
+        <% } %>
+      </div>
+
+      <!-- Modal -->
+      <div class="modal fade" id="modalPython" tabindex="-1" role="dialog" aria-labelledby="titoloModalPython" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 style="color: black" class="modal-title" id="titoloModalPython">Informazioni da Wikipedia</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <p>
+                <%= wikipediaInfo %>
+              </p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Chiudi</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid-item" id="caratteristiche">
+          <h3>Caratteristiche</h3>
+          <hr>
+
+          <% if (element.caratteristica1) { %>
+            <% if (element.caratteristica1) { %>              
+              <h5><%= element.caratteristica1 %></h5>
+            <% } %>
+
+            <% if (element.caratteristica2) { %>
+              <hr>
+              <h5><%= element.caratteristica2 %></h5>
+            <% } %>
+
+            <% if (element.caratteristica3) { %>
+              <hr>
+              <h5><%= element.caratteristica3 %></h5>
+            <% } %>
+
+            <% if (element.caratteristica4) { %>
+              <hr>
+              <h5><%= element.caratteristica4 %></h5>
+            <% } %>
+          <% } else { %>
+            <h4>Nessuna informazione rilevante</h4>
+          <% } %>
+      </div>
+
+      <div class="grid-item" id="industrie">
+        <h3>Industrie</h3>
+
+        <hr>
+
+        <% if (element.industria1 && element.industria1.trim()) { %>
+          <div class="img-list-industrie">
+            <% if (element.industria1) { %>              
+              <img src="img/industrie/<%= element.industria1.toLowerCase().trim() %>.png" alt="<%= element.industria1 %>" data-toggle="tooltip" data-placement="bottom" title="<%= element.industria1 %>">
+            <% } %>
+
+            <% if (element.industria2) { %>
+              <img src="img/industrie/<%= element.industria2.toLowerCase().trim() %>.png" alt="<%= element.industria2 %>" data-toggle="tooltip" data-placement="bottom" title="<%= element.industria2 %>">
+            <% } %>
+
+            <% if (element.industria3) { %>
+              <img src="img/industrie/<%= element.industria3.toLowerCase().trim() %>.png" alt="<%= element.industria3 %>" data-toggle="tooltip" data-placement="bottom" title="<%= element.industria3 %>">
+            <% } %>
+
+            <% if (element.industria4) { %>
+              <img src="img/industrie/<%= element.industria4.toLowerCase().trim() %>.png" alt="<%= element.industria4 %>" data-toggle="tooltip" data-placement="bottom" title="<%= element.industria4 %>">
+            <% } %>
+          </div>
+        <% } else { %>
+          <h4>Nessuna industria degna di nota</h4>
+        <% } %>
+      </div>
+
+      <div class="grid-item" id="pericoli">
+        <h3>Pericoli</h3>
+
+        <hr>
+
+        <% if (element.pericolo1 && element.pericolo1.trim()) { %>
+          <div class="img-list-pericoli">
+            <% if (element.pericolo1) { %>              
+              <img src="img/pericoli/<%= element.pericolo1.toLowerCase().trim() %>.png" alt="<%= element.pericolo1 %>" data-toggle="tooltip" data-placement="bottom" title="<%= element.pericolo1 %>">
+            <% } %>
+
+            <% if (element.pericolo2) { %>
+              <img src="img/pericoli/<%= element.pericolo2.toLowerCase().trim() %>.png" alt="<%= element.pericolo2 %>" data-toggle="tooltip" data-placement="bottom" title="<%= element.pericolo2 %>">
+            <% } %>
+
+            <% if (element.pericolo3) { %>
+              <img src="img/pericoli/<%= element.pericolo3.toLowerCase().trim() %>.png" alt="<%= element.pericolo3 %>" data-toggle="tooltip" data-placement="bottom" title="<%= element.pericolo3 %>">
+            <% } %>
+          </div>
+        <% } else if (element.nessunPericolo) { %>
+          <h4>Nessun pericolo rilevante</h4>
+        <% } else { %>
+          <h4>Pericoli non analizzati</h4>
+        <% } %>
+      </div>
+      
+      <div class="grid-item" id="mappa">
+        <h3>Paesi esportatori</h3>        
+
+        <hr>
+
+        <%- include map.ejs %>
+      </div>
+    </div>
+	</div>
+  
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+  
+  <script>
+    $(function () {
+      $('[data-toggle="tooltip"]').tooltip()
+    })
+  </script>
+</body>
+
+</html>

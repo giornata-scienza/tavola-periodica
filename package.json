@@ -1,0 +1,25 @@
+{
+  "name": "tavola-periodica",
+  "version": "1.0.0",
+  "description": "Tavola periodica",
+  "main": "index.js",
+  "scripts": {
+    "serve": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/giornata-scienza/tavola-periodica.git"
+  },
+  "author": "github.com/giornata-scienza",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/giornata-scienza/tavola-periodica/issues"
+  },
+  "homepage": "https://tp.thage.me",
+  "dependencies": {
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "python-shell": "^1.0.6",
+    "wikijs": "^4.10.0"
+  }
+}

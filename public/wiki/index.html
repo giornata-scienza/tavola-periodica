@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>Wiki | Tavola Periodica</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="wiki.css">
+
+  </head>
+  <body>
+
+    <header>
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <a class="navbar-brand" href="https://tp.thage.me/wiki">Wiki</a>
+      </nav>
+    </header>
+
+    <main role="main">
+
+      <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+          <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+          <li data-target="#myCarousel" data-slide-to="1"></li>
+        </ol>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img class="first-slide" src="img/info.jpeg" alt="La classe">
+            <div class="container">
+              <div class="carousel-caption">
+                <h1>Questi siamo noi</h1>
+                <p>Siamo la classe 5^A Informatica dell'Istituto "Asproni-Fermi" di Iglesias. Abbiamo realizzato questo sito in occasione della Giornata della Scienza di Iglesias.</p>
+                <p><a class="btn btn-lg btn-primary" href="http://www.asproni-fermi.gov.it/" role="button">Scopri la scuola</a></p>
+              </div>
+            </div>
+          </div>
+  
+          <div class="carousel-item">
+            <img class="second-slide" src="img/slide-3.jpg" alt="Il corso">
+            <div class="container">
+              <div class="carousel-caption">
+                <h1>Il progetto</h1>
+                <p>In questa esperienza abbiamo inserito le conoscenze acquisite in tre anni di corso, sia quelle inerenti allo sviluppo software, sia quelle inerenti alla progettazione.</p>
+                <p><a class="btn btn-lg btn-primary" href="http://www.asproni-fermi.gov.it/attachments/article/106/PTOF%20Asproni-Fermi%202016-19%20(12.02.2018).pdf" role="button">Piano Offerta Formativa</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Indietro</span>
+        </a>
+        <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Avanti</span>
+        </a>
+      </div>
+
+
+      <!-- Marketing messaging and featurettes
+      ================================================== -->
+      <!-- Wrap the rest of the page in another container to center all the content. -->
+
+      <div class="container marketing">
+
+        <!-- Three columns of text below the carousel -->
+        <div class="row">
+          <div class="col-lg-4">
+            <img class="rounded-circle" src="img/webapp.jpg" alt="Generic placeholder image" width="140" height="140">
+            <h2>WebApp</h2>
+            <p>Il nostro sito presenta al pubblico una tavola periodica interattiva. Cliccando sugli elementi vengono visualizzate le informazioni forniteci dalla classe 5^A Liceo Scienze Applicate.</p>
+            <p><a class="btn btn-secondary" href="https://tp.thage.me/" role="button">Visita il sito</a></p>
+          </div><!-- /.col-lg-4 -->
+          <div class="col-lg-4">
+            <img class="rounded-circle" src="img/github.png" alt="Generic placeholder image" width="140" height="140">
+            <h2>Documentazione</h2>
+            <p>Il codice che da vita alla nostra WebApp è pubblico e concesso sotto licenza MIT. Visita la nostra repository su Github per maggiori informazioni</p>
+            <p><a class="btn btn-secondary" href="https://github.com/giornata-scienza/tavola-periodica" role="button">Vieni a trovarci su GitHub</a></p>
+          </div><!-- /.col-lg-4 -->
+          <div class="col-lg-4">
+            <img class="rounded-circle" src="img/db.jpg" alt="Generic placeholder image" width="140" height="140">
+            <h2>Database</h2>
+            <p>Il nostro server contiene la raccolta completa di tutti e 118 gli elementi della tavola periodica, codificati in JSON</p>
+            <p><a class="btn btn-secondary" href="https://github.com/giornata-scienza/tavola-periodica/blob/master/public/elements.json" role="button">Dai un'occhiata</a></p>
+          </div><!-- /.col-lg-4 -->
+        </div><!-- /.row -->
+
+
+        <!-- START THE FEATURETTES -->
+
+        <hr class="featurette-divider">
+        
+        <div class="row featurette">
+          <div class="col-md-7">
+            <h2 class="featurette-heading"><span class="text-muted">I linguaggi usati</span></h2>
+            <p class="lead">Per realizzare la WebApp abbiamo utilizzato diverse tecnologie, studiate in questi 3 anni: MySQL, JSON, PHP, JavaScript, HTML, CSS, Python</p>
+          </div>
+          <div class="col-md-5">
+            <img class="featurette-image img-fluid mx-auto" src="img/languages.jpeg" alt="Programmando...">
+          </div>
+        </div>
+
+        <hr class="featurette-divider">
+
+        <div class="row featurette">
+          <div class="col-md-7 order-md-2">
+            <h2 class="featurette-heading"><span class="text-muted">Il server</span></h2>
+            <p class="lead">Il sito è ospitato gentilmente sui server di <a href="https://thage.me/">thage.me</a>. Sulla macchina gira la distro Linux di Ubuntu, tenuta online da 2 GB di RAM e 2 processori.</p>
+          </div>
+          <div class="col-md-5 order-md-1">
+            <img class="featurette-image img-fluid mx-auto" src="img/server.jpeg" alt="Il server">
+          </div>
+        </div>
+
+        <hr class="featurette-divider">
+
+        <div class="row featurette">
+          <div class="col-md-7">
+            <h2 class="featurette-heading"><span class="text-muted">Gli account</span></h2>
+            <p class="lead">Per poter aggiungere elementi al nostro database è necessario accedere con una password e un username. Questi dati, ovviamente ritenuti sensibili, vengono salvati in un database MySQL e codificati con un hash variabile sino a 255 caratteri. Nessuna password viene salvata in chiaro o decodificata durante i processi di autenticazione.</p>
+          </div>
+          <div class="col-md-5">
+            <img class="featurette-image img-fluid mx-auto" src="img/database.jpeg" alt="Il server">
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+  </body>
+</html>

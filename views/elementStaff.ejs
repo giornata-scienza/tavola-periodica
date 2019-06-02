@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <title><%= element.name %><% if (element.rawMaterial) { %> | Raw material<% } %></title>
+  
+	<link rel="stylesheet" href="css/bootstrap-custom.css">
+	<link rel="stylesheet" href="css/main.css">
+	<link rel="stylesheet" href="css/gauge.css">
+</head>
+
+<body>
+
+	<div class="element-card" style="<% if (element.rawMaterial) { %>border-color: #ff4532<% } %>">
+    <a href="/">
+      <button type="button" class="close" id="arrow-button">
+        <span aria-hidden="true">&LeftArrow;</span>
+      </button>
+    </a>
+
+    <div class="grid">
+      <div class="grid-item" id="info">
+        <h3>Caratteristiche</h3>
+        
+        <hr>
+
+        <h4>Applicazione</h4>
+        <h5><%= element.caratteristica1 %></h5>
+        
+        <hr>
+
+        <h4>Server</h4>
+        <h5><%= element.caratteristica2 %></h5>
+        
+        <hr>
+
+        <h4>Database</h4>
+        <h5><%= element.caratteristica3 %></h5>
+        
+        <hr>
+
+        <h4>Sicurezza</h4>
+        <h5><%= element.caratteristica4 %></h5>
+      </div>
+
+      <div class="grid-item" id="caratteristiche">
+        <h3>Chi siamo</h3>
+
+        <hr>
+
+        <h5>Siamo la classe 5^A Informatica dell'Istituto "Asproni-Fermi" di Iglesias. In collaborazione con la classe 5^A Liceo, abbiamo realizzato questo sito in occasione della Giornata della Scienza di Iglesias.</h5>
+      </div>
+
+      <div class="grid-item" id="industrie">
+        <h3>Chi siamo</h3>
+
+        <hr>
+
+        <h5>Siamo la classe 5^A Informatica dell'Istituto "Asproni-Fermi" di Iglesias. In collaborazione con la classe 5^A Liceo, abbiamo realizzato questo sito in occasione della Giornata della Scienza di Iglesias.</h5>
+      </div>
+
+      <div class="grid-item" id="pericoli">
+        <h3>Pericoli</h3>
+
+        <hr>
+
+        <% if (element.pericolo1 && element.pericolo1.trim()) { %>
+          <div class="img-list-pericoli">
+            <% if (element.pericolo1) { %>              
+              <img src="img/pericoli/<%= element.pericolo1.toLowerCase().trim() %>.png" alt="<%= element.pericolo1 %>" data-toggle="tooltip" data-placement="bottom" title="<%= element.pericolo1 %>">
+            <% } %>
+
+            <% if (element.pericolo2) { %>
+              <img src="img/pericoli/<%= element.pericolo2.toLowerCase().trim() %>.png" alt="<%= element.pericolo2 %>" data-toggle="tooltip" data-placement="bottom" title="<%= element.pericolo2 %>">
+            <% } %>
+
+            <% if (element.pericolo3) { %>
+              <img src="img/pericoli/<%= element.pericolo3.toLowerCase().trim() %>.png" alt="<%= element.pericolo3 %>" data-toggle="tooltip" data-placement="bottom" title="<%= element.pericolo3 %>">
+            <% } %>
+          </div>
+        <% } else if (element.nessunPericolo) { %>
+          <h4>Nessun pericolo rilevante</h4>
+        <% } else { %>
+          <h4>Pericoli non analizzati</h4>
+        <% } %>
+      </div>
+      
+      <div class="grid-item" id="mappa">
+        <h3>gg</h3>        
+
+        <hr>
+
+        <p>gg</p>
+      </div>
+    </div>
+	</div>
+  
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+  
+  <script>
+    $(function () {
+      $('[data-toggle="tooltip"]').tooltip()
+    })
+  </script>
+</body>
+
+</html>

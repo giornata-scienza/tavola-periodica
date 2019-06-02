@@ -1,0 +1,161 @@
+body {
+  background-color: black;
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  margin-right: : 10px;
+  color: white;
+  text-align: center;
+}
+
+
+.demo{ background: #262526; }
+.our-team{
+    padding: 20px 15px 30px;
+    background: #fff;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.our-team .pic{
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    padding: 10px;
+    margin-bottom: 25px;
+    transition: all 0.5s ease 0s;
+}
+.our-team:hover .pic{
+    background: #17bebb;
+    border-radius: 50%;
+}
+.pic img{
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+}
+.our-team .title{
+    display: block;
+    font-size: 20px;
+    font-weight: 600;
+    color: #2e282a;
+    margin: 0 0 7px 0;
+}
+.our-team .post{
+    display: block;
+    font-size: 15px;
+    color: #17bebb;
+    margin-bottom: 15px;
+}
+.our-team .social{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+.our-team .social li{
+    display: inline-block;
+    margin-right: 5px;
+}
+.our-team .social li a{
+    display: block;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    border-radius: 50%;
+    font-size: 15px;
+    color: #17bebb;
+    border: 1px solid #17bebb;
+    transition: all 0.5s ease 0s;
+}
+.our-team:hover .social li a{
+    background: #17bebb;
+    color: #fff;
+}
+@media only screen and (max-width: 990px){
+    .our-team{ margin-bottom: 30px; }
+}
+
+
+.wrapper-block {      /* spread it to body */
+  overflow:hidden;    /* scrollbars nope!!! */
+  position:absolute;
+  display:table;
+  height:100%;
+  width:100%;
+  text-align:center;  
+  
+  /* center it the flex way 
+  position:absolute;
+  top:0;
+  right:0;
+  bottom:0;
+  left:0;
+  display:flex; */
+}
+
+.wrapper-center {
+  vertical-align:middle;
+  display:table-cell;
+  /* margin:auto;      /* center it the flex way */
+}
+
+.position-me { 
+  font-family:Arial, Helvetica, sans-serif;
+  font-size:4rem;
+  line-height:4rem;
+  position:relative;
+  display:inline-block;
+  color:rgba(60, 60, 60, 0);
+}
+
+.position-me a,
+.position-me a:link,
+.position-me a:visited,
+.position-me a:focus,
+.position-me a:hover,
+.position-me a:active {
+  border:none;
+  text-decoration:none;
+  outline:0;
+  color:rgba(60, 60, 60, 1);
+}
+
+.position-me.s-lovely a,
+.position-me.s-lovely a:link,
+.position-me.s-lovely a:visited,
+.position-me.s-lovely a:focus,
+.position-me.s-lovely a:hover,
+.position-me.s-lovely a:active {
+  color:rgba(255, 0, 55, 1);
+}
+
+/* needed if some scaling is done */
+.animate-me {
+  position:absolute;
+  left:0;
+  top:0;
+  color:rgba(160, 160, 160, 1);
+}
+
+.animate-me.s-animating,
+.animate-me:hover {
+  animation-duration:0.3s;
+  animation-iteration-count:2;
+  animation-direction:alternate;
+  animation-name:animateMe;
+}
+
+@keyframes animateMe {
+  from {}
+ 
+  to {
+    font-size:70rem;
+    opacity:0.3;
+  }
+}
+
+/* states */
+.s-animating {}
+.s-hidden { display:none; }
+.s-lovely { color:rgba(255, 0, 55, 0); }

@@ -1,0 +1,12 @@
+<svg viewBox="0 0 1009 652">
+  <g>
+    <% countries.forEach(country => { %>
+      <path d="<%= country.d %>"
+      class="<%= country.class.toUpperCase() %> <% if (element.paese1 && element.paese1.toUpperCase() === country.class.toUpperCase()) { %>paese1<% } else if (element.paese2 && element.paese2.toUpperCase() === country.class.toUpperCase()) { %>paese2<% } else if (element.paese3 && element.paese3.toUpperCase() === country.class.toUpperCase()) { %>paese3<% } %>"
+      data-toggle="tooltip"
+      data-placement="bottom"
+      title="<% if (element.paese1 && element.paese1.toUpperCase() === country.class.toUpperCase()) { %><%= getCountry(country.class.toUpperCase()) %><% } else if (element.paese2 && element.paese2.toUpperCase() === country.class.toUpperCase()) { %><%= getCountry(country.class.toUpperCase()) %><% } else if (element.paese3 && element.paese3.toUpperCase() === country.class.toUpperCase()) { %><%= getCountry(country.class.toUpperCase()) %><% } %>">
+      </path>
+    <% }) %>
+  </g>
+</svg>

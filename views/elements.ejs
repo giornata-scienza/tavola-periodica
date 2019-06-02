@@ -1,0 +1,32 @@
+<% elements.forEach(element => { %>
+  <div class="element <%= element.classes %>">
+    <input class="activate" type="radio" name="elements"/>
+    <input class="deactivate" type="radio" name="elements"/>
+    <div class="overlay"></div>
+    <div class="square">
+      <div class="model">
+        <% for (let i = 0; i < element.orbitals.length; i++) { %>
+          <div class="orbital">
+            <% for (let j = 0; j < element.orbitals[i]; j++) { %>
+              <div class="electron"></div>
+            <% } %>
+          </div>
+        <% } %>
+      </div>
+      <div class="atomic-number"><%= element.atomicNumber %></div>
+      <a href="/<%= element.name.toLowerCase() %>">
+        <div class="label">
+          <div class="symbol"><%= element.symbol %></div>
+          <div class="name"><%= element.name %></div>
+        </div>
+      </a>
+      <div class="atomic-mass">
+        <% if (element.atomicMassNotCertain) { %>
+          [<%= element.atomicMass %>]
+        <% } else { %>
+          <%= element.atomicMass %>
+        <% } %>
+      </div>
+    </div>
+  </div>
+<% }) %>
